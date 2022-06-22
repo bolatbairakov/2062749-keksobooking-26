@@ -30,31 +30,31 @@ const PHOTOS = [
 ];
 
 const latitude = {
-min: 35.65000,
-max: 35.70000,
+  min: 35.65000,
+  max: 35.70000,
 };
 
 const longitude = {
-min: 139.70000,
-max: 139.80000,
+  min: 139.70000,
+  max: 139.80000,
 };
 
 const price = {
-min: 0,
-max: 10,
+  min: 0,
+  max: 10,
 };
 
 const rooms = {
-min: 0,
-max: 10,
+  min: 0,
+  max: 10,
 };
 
 const guests = {
-min: 0,
-max: 10,
+  min: 0,
+  max: 10,
 };
 
-function getRandom (a, b) {
+function getRandom(a, b) {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
   const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
 
@@ -65,7 +65,7 @@ function getRandom (a, b) {
 
 getRandom();
 
-function getFractionRandom (a, b, digits = 5) {
+function getFractionRandom(a, b, digits = 5) {
   const lower = Math.min(Math.abs(a), Math.abs(b));
   const upper = Math.max(Math.abs(a), Math.abs(b));
 
@@ -77,7 +77,7 @@ function getFractionRandom (a, b, digits = 5) {
 getFractionRandom();
 
 const getRandomArrayElement = (elements) =>
-  elements [getRandom(0, elements.length - 1)];
+  elements[getRandom(0, elements.length - 1)];
 
 const createObj = (id) => {
   const lat = getFractionRandom(latitude.min, latitude.max);
@@ -100,7 +100,7 @@ const createObj = (id) => {
         FEATURES.slice(0, getRandom(1, FEATURES.length)),
       description: 'Описание помещения',
       photos:
-      PHOTOS.slice(0, getRandom(1, PHOTOS.length)),
+        PHOTOS.slice(0, getRandom(1, PHOTOS.length)),
     },
     location: {
       lat,
@@ -109,10 +109,10 @@ const createObj = (id) => {
   };
 };
 
-const createAds = (amount) => 
-    Array.from(
-      { length: amount },
-        (_, index) => createObj(index));
+const createAds = (amount) =>
+  Array.from(
+    { length: amount },
+    (_, index) => createObj(index));
 
 
 createAds(MAX_ADS_COUNT);
